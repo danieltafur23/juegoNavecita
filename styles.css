@@ -1,0 +1,32 @@
+.tablero{
+    display: flex;
+    flex-wrap: wrap;
+    border: 1px solid black;
+    width: 600px;
+    height: 600px;
+    margin: 0 auto;
+}
+
+h1,h3{
+text-align: center;
+}
+
+.tablero div{
+    width: 40px;
+    height: 40px;
+}
+
+.balas{
+    background-color: rgb(172, 255, 47);
+}
+.aliens{
+    background-color: rgb(0, 255, 255);
+    border-radius: 30px;
+    border-color: blue;
+}
+.nave{
+    background-color: rgb(190, 190, 190);
+}
+.explosion{
+    background-color: rgb(255, 68, 0);
+}
