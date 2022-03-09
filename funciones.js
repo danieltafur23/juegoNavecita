@@ -16,10 +16,42 @@ document.addEventListener('DOMContentLoaded', function(){
         30,31,32,33,34,35,36,37,38,39
     ]
 
-    //colocar los aliens en el tablero
-    aliens.forEach(alien => cuadroTablero[posicionAliens + alien].classList.add("aliens"));
-    
-    //Colocar la nave en posicion inicial
-    cuadroTablero[posicionNave].classList.add("nave");
+    function ubicarAliens(){
+        //colocar los aliens en el tablero
+        aliens.forEach(alien => cuadroTablero[posicionAliens + alien].classList.add("aliens"));
+    }
 
-})
+    ubicarAliens();
+
+    //Funcion para quitar los aliens
+    function quitarAliens(){
+        aliens.forEach(alien => cuadroTablero[posicionAliens + alien].classList.remove("aliens"));
+    }
+  
+  
+    //Colocar la nave en posicion inicial
+    //cuadroTablero[posicionNave].classList.add("nave");
+
+    function moverNave(evento){
+        cuadroTablero[posicionNave].classList.remove("nave");
+
+        switch(evento.key){
+            case 'ArrowLeft' :
+                if ((posicionNave % cuadros) !== 0 ) {
+                    posicionNave -= 1;
+                }
+            break;
+            case 'ArrowRight' : 
+            if ((posicionNave % cuadros) < cuadros -1 ) {
+                posicionNave += 1;
+            }
+            break;
+        }
+        cuadroTablero[posicionNave].classList.add("nave");
+    }
+
+    //Activar evento teclado
+    document.addEventListener('keydown', moverNave);
+
+
+});
